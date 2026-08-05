@@ -1,0 +1,34 @@
+# Target interpreter: Python >= 3.9 (developed on CPython 3.9.6).
+#
+#     python -m venv .venv && source .venv/bin/activate
+#     pip install -r requirements.txt
+
+# --- Core data handling ----------------------------------------------------
+pandas>=2.0,<2.3
+numpy>=1.24,<2.1
+pyarrow>=14.0,<18.0          # Parquet cache for the processed feature table
+
+# --- Optional large-data backends -----------------------------------------
+# The pipeline is pandas-first; these are available for larger pulls.
+polars>=0.20,<1.10
+duckdb>=0.10,<1.2
+
+# --- Modelling -------------------------------------------------------------
+scikit-learn>=1.3,<1.6      # LogisticRegression, RandomForestClassifier, metrics
+xgboost>=2.0,<3.0
+imbalanced-learn>=0.12,<0.13 # optional resampling
+joblib>=1.3,<2.0            # model persistence
+
+# --- Explainability --------------------------------------------------------
+shap>=0.44,<0.47
+matplotlib>=3.7,<4.0
+
+# --- Inference service -----------------------------------------------------
+fastapi>=0.110,<0.116
+uvicorn[standard]>=0.27,<0.33
+pydantic>=2.5,<3.0
+
+# --- Developer tooling -----------------------------------------------------
+pytest>=8.0,<9.0
+httpx>=0.27,<0.29           # required by fastapi.testclient.TestClient
+tqdm>=4.66,<5.0

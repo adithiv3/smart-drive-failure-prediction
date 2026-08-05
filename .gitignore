@@ -216,3 +216,21 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Backblaze telemetry and generated artifacts
+# Uses `dir/**` rather than `dir/` so the `!` negations below still apply.
+data/**
+!data/raw/
+!data/raw/.gitkeep
+!data/processed/
+!data/processed/.gitkeep
+
+# Trained models, SHAP plots and metric reports; regenerable from src/.
+artifacts/**
+!artifacts/.gitkeep
+
+*.csv
+*.csv.gz
+*.zip
+*.parquet
+!tests/fixtures/**/*.csv
